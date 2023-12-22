@@ -7,7 +7,9 @@ document.getElementById('excelFile').addEventListener('change', handleFile);
   finally make css design...
 */
 
+document.querySelector("#table-container").style.display = "none"
 function handleFile(event) {
+  document.querySelector("#table-container").style.display = "block"
   document.querySelector("#data").innerHTML = '';
   const file = event.target.files[0];
 
@@ -21,7 +23,17 @@ function handleFile(event) {
       const sheet = workbook.Sheets[sheetName];
       const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
       
-      
+      const filteredData = jsonData.filter(every=>every.length > 0)
+      filteredData.map(every=>{
+        const row = document.createElement('tr');
+        every.forEach(element => {
+          const cell = document.createElement('td');
+          cell.innerText = element;
+          row.appendChild(cell);
+        });
+        document.querySelector('#data').appendChild(row)
+      })
+
     };
 
     reader.readAsArrayBuffer(file);
