@@ -30,8 +30,10 @@ function handleFile(event) {
           const cell = document.createElement('td');
           cell.innerText = element;
           row.appendChild(cell);
+          
         });
         document.querySelector('#data').appendChild(row)
+        
       })
 
     };
