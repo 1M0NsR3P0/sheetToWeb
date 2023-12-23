@@ -15,12 +15,12 @@
 
         body {
             overflow: hidden;
-            background-color: rgb(225, 164, 164);
+            background-color: rgb(255, 247, 247);
         }
 
         #table-container {
             overflow: auto;
-            height: 95vh;
+            height: 92vh;
             width: 100%;
             background-color: gainsboro;
         }
@@ -31,19 +31,21 @@
         }
 
         #data tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #ffffff;
         }
-        #data tr:nth-child(1){
-            color: rgb(0, 0, 0);
+
+        #data tr:nth-child(1) {
+            color: rgb(49, 49, 49);
             font-weight: 700;
             font-size: 1.5rem;
         }
+
         #data td {
             padding: 10px;
         }
 
         #data tr:nth-child(odd) {
-            background-color: #e0e0e0;
+            background-color: #d5d3d3;
         }
 
         #data tr:hover {
@@ -54,11 +56,19 @@
 </head>
 
 <body>
-    <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
-        <h1 style="text-align: center;">Create Excell Sheet Data to Web Table</h1>
-
-        <!-- Allow user to upload an excel file -->
-        <input type="file" id="excelFile" />
+    <div style="display: flex;flex-direction: column; justify-content: center; align-items: center; gap: 15px;">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+            <h1 style="text-align: center;">Create Excell Sheet Data to Website Table</h1>
+            <!-- Allow user to upload an excel file -->
+            <input type="file" id="excelFile" />
+        </div>
+        <div>
+            <button class="btn" id="size" onclick="format('size')">Size</button>
+            <button class="btn" id="color" onclick="format('color')">Color</button>
+            <button class="btn" id="bold" onclick="format('bold')">Bold</button>
+            <button class="btn" id="underline" onclick="format('underline')">Underline</button>
+            <button class="btn" id="highlight" onclick="format('highlight')">Highlight</button>
+        </div>
     </div>
     <div id="table-container">
         <table id="data"></table>
